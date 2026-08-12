@@ -3,6 +3,7 @@ list_courses Django application initialization.
 """
 
 from django.apps import AppConfig
+from edx_django_utils.plugins import PluginSignals
 from edx_django_utils.plugins.constants import PluginURLs, PluginSettings
 
 
@@ -34,4 +35,13 @@ class ListCoursesConfig(AppConfig):
                 },
             }
         },
+        PluginSignals.CONFIG: {
+            'lms.djangoapp': {
+                PluginSignals.RELATIVE_PATH: 'signals',
+                PluginSignals.RECEIVERS: [{
+                    PluginSignals.RECEIVER_FUNC_NAME: 'course_created_handler',
+                    PluginSignals.SIGNAL_PATH: 'openedx_events.content_authoring.signals.COURSE_CREATED',
+                }]
+            }
+        }
     }
