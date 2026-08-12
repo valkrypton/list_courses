@@ -19,7 +19,7 @@ class ListCoursesConfig(AppConfig):
                 PluginURLs.NAMESPACE: 'list_courses',
                 PluginURLs.APP_NAME: 'list_courses',
                 PluginURLs.REGEX: r'^api/list_courses/',
-                PluginURLs.RELATIVE_PATH: 'list_courses.urls',
+                PluginURLs.RELATIVE_PATH: 'urls',
             }
         },
         PluginSettings.CONFIG: {
@@ -36,7 +36,7 @@ class ListCoursesConfig(AppConfig):
             }
         },
         PluginSignals.CONFIG: {
-            'lms.djangoapp': {
+            'cms.djangoapp': {
                 PluginSignals.RELATIVE_PATH: 'signals',
                 PluginSignals.RECEIVERS: [{
                     PluginSignals.RECEIVER_FUNC_NAME: 'course_created_handler',
