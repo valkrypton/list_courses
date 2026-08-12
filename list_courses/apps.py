@@ -3,7 +3,6 @@ list_courses Django application initialization.
 """
 
 from django.apps import AppConfig
-from edx_django_utils.plugins import PluginContexts, PluginSignals
 from edx_django_utils.plugins.constants import PluginURLs, PluginSettings
 
 
@@ -35,17 +34,4 @@ class ListCoursesConfig(AppConfig):
                 },
             }
         },
-        PluginSignals.CONFIG: {
-            'lms.djangoapp': {
-                PluginSignals.RELATIVE_PATH: 'my_signals',
-                PluginSignals.RECEIVERS: [{
-                    PluginSignals.RECEIVER_FUNC_NAME: 'on_signal_x',
-                }],
-            }
-        },
-        PluginContexts.CONFIG: {
-            'lms.djangoapp': {
-                'course_dashboard': 'list_courses.context_api.get_dashboard_context',
-            }
-        }
     }

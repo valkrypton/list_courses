@@ -2,6 +2,9 @@
 -c constraints.txt
 
 Django             # Web application framework
+djangorestframework
+openedx-core
+openedx-events
 
 
 openedx-atlas
